@@ -1,0 +1,91 @@
+[S05 Deploying ASP.NET API using Docker]
+
+
+	Scenario:
+		- Assuming that we are done with the MVP requirements for our API App, we are now ready to deploy it.
+		- In this session, we will demo how to deploy an ASP.NET app using docker and visual studio code.
+
+
+[Install Docker Extension]
+
+Install the Docker extension in the visual studio code.
+
+
+[Run the ASP.NET API Server]
+
+- to run the asp.net server in the root (where the Program.cs is found)
+
+	dotnet run
+
+
+[Create a .env file]
+
+- define here all the environment variables that will be needed in our docker-compose.yml and other files.
+
+[Create a docker-compose.yml file]
+
+- define the configuration for creating the database server container
+
+
+[Create the Docker-Compose container]
+
+	docker-compose up -d
+
+note: when running the docker-compose command, make sure we are inside the project root.
+
+
+[Check the DB using mysql root user]
+
+	- This can be done in the container terminal or using powershell/gitbash.
+
+[Adding Db Tables Automatically]
+
+	- To automatically add our tables to our Database, we need to create a db folder inside our root.
+	- Inside the db folder, we will create an init.sql file.
+
+
+[Install Docker Extension]
+
+
+[Add Dockerfiles]
+
+	Note: Install C# Extension as needed.
+
+[Dockerfiles initial content]
+
+	- This is refractored in accordance to our project requirements
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-nanoserver-1809 AS base
+WORKDIR /app
+EXPOSE 5157
+
+ENV ASPNETCORE_URLS=http://+:5157
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0-nanoserver-1809 AS build
+ARG configuration=Release
+WORKDIR /src
+COPY ["course-booking-be.csproj", "./"]
+RUN dotnet restore "course-booking-be\course-booking-be.csproj"
+COPY . .
+WORKDIR "/src/course-booking-be"
+RUN dotnet build "course-booking-be.csproj" -c $configuration -o /app/build
+
+FROM build AS publish
+ARG configuration=Release
+RUN dotnet publish "course-booking-be.csproj" -c $configuration -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "course-booking-be.dll"]
+
+
+
+[Testing the Dockerfile for API]
+
+Build the image for the API app
+	docker build -t course-booking-img .
+
+Build the container for the course-booking-img image
+	docker run --name course-booking-cont course-booking-img
+

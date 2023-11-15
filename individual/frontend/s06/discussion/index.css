@@ -1,0 +1,120 @@
+/*CSS Rules*/
+
+/*
+	selector {
+		property: value;
+	}
+
+
+Rule of Specificity: ;
+	
+	1. ID Selector (#) 					----- > Highest Priority
+	2. Class Selector (.)
+	3. Attribute Selector (tagName[att=value])
+	4. Type Selector (tagName)
+	5. Universal Selector (*)			----- > Least Priority
+
+
+*/
+
+/*Universal Selector*/
+* {
+	font-family: "Courier New", monospace;
+	font-size: 20px;
+}
+
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: skyblue;
+}
+
+
+/*navigation bar*/
+nav {
+	background-color: white;
+}
+
+div	{
+	float: right;
+}
+
+/*Type Selector*/
+h1 {
+	text-align: center;
+	font-size: 2rem;
+	color: brown;
+	/*color: yellow !important;*/
+}
+
+
+section {
+	height: 100vh;
+	text-align: center;
+}
+
+h2	{
+	font-size: 1.5rem;
+}
+
+/*ID Selector*/
+/*#id-name*/
+#zuitt-motto {
+	letter-spacing: 5px;
+}
+
+
+/*This rule set was overridden by the ID selector with a value zuitt-motto*/
+/*h3 {
+	letter-spacing: 25px;
+}*/
+
+
+/*Class Selector*/
+/*.class-name*/
+.offering-item {
+	text-transform: uppercase;
+}
+
+
+
+
+/*Selector Combinators*/
+/*Adjacent Sibling Selector*/
+/*selector + selector*/
+h3 + img {
+	height: 300px;
+	width: 300px;
+	border-radius: 150px;
+}
+
+
+/*Descendant Selector*/
+/*selector selector*/
+#bootcamp-learning-list li {
+	color: #075966;
+}
+
+
+
+/*General Sibling Selector*/
+/*selector ~ selector*/
+h2 ~ a {
+	text-decoration: none;
+}
+
+
+.modules {
+	letter-spacing: 3px;
+}
+
+
+ol {
+	list-style-type: none;
+	padding: 0;
+}
+
+

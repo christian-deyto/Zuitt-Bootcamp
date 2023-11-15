@@ -1,0 +1,14 @@
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\bin\Debug\net6.0\activity.exe
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\bin\Debug\net6.0\activity.deps.json
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\bin\Debug\net6.0\activity.runtimeconfig.json
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\bin\Debug\net6.0\activity.dll
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\bin\Debug\net6.0\activity.pdb
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.AssemblyInfoInputs.cache
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.AssemblyInfo.cs
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.csproj.CoreCompileInputs.cache
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.dll
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\refint\activity.dll
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.pdb
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\activity.genruntimeconfig.cache
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s05\activity\obj\Debug\net6.0\ref\activity.dll

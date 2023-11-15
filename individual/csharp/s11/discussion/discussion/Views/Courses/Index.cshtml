@@ -1,0 +1,80 @@
+﻿@model IEnumerable<discussion.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<div class="d-flex justify-content-between my-5">
+    <h1>Courses</h1>
+    <button class="btn btn-success py-0">
+        <a class="text-light text-decoration-none" asp-area="" asp-controller="Courses" asp-action="Create" >
+            Add New Course
+        </a>
+    </button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StackUrl)
+            </th>
+            <th>Actions:</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="align-middle">
+                    @if(item.Logo != null)
+                    {
+                        <img src="@Url.Content(item.Logo)" alt="Logo" style="height: 75px; width: 75px;" />
+                    }
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Stack)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.StackUrl)
+            </td>
+            <td class="align-middle">
+                <button class="btn btn-warning fw-bold d-block w-100 mb-2">
+                     <a class="text-dark text-decoration-none" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </button>
+
+                <button class="btn btn-primary fw-bold d-block w-100 mb-2">
+                     <a class="text-dark text-decoration-none" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </button>
+                
+                <button class="btn btn-danger fw-bold d-block w-100 mb-2">
+                     <a class="text-dark text-decoration-none" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </button>                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

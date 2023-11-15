@@ -1,0 +1,14 @@
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\bin\Debug\net6.0\discussion.exe
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\bin\Debug\net6.0\discussion.deps.json
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\bin\Debug\net6.0\discussion.runtimeconfig.json
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\bin\Debug\net6.0\discussion.dll
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\bin\Debug\net6.0\discussion.pdb
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.AssemblyInfoInputs.cache
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.AssemblyInfo.cs
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.csproj.CoreCompileInputs.cache
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.dll
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\refint\discussion.dll
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.pdb
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\discussion.genruntimeconfig.cache
+C:\Users\zuitt\Documents\pointwest\individual\csharp\s05\discussion\discussion\obj\Debug\net6.0\ref\discussion.dll

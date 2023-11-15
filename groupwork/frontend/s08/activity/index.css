@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Pixelify Sans', cursive;
+}
+
+h1, h2, h3, h4 {
+	font-family:  "Cinzel", serif;
+}
+
+nav {
+	padding: 5px;
+	text-align: center;
+	background-color: seagreen;
+}
+
+nav li {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0.5rem;
+	padding: 3px;
+}
+
+#landing {
+	background-image: url(https://i.pinimg.com/originals/6a/0d/c6/6a0dc6826b7e238993509561bc60b51a.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 50vh;
+	color:  white;
+}
+
+#landing h1 {
+	padding-top: 2rem;
+	font-size: 3rem;
+}
+
+#landing h3 {
+	margin: 1rem;
+}
+
+#landing button {
+	padding: 0.8rem;
+	background-color: seagreen;
+	border: 2px solid darkgoldenrod;
+	border-radius: 10px;
+}
+
+#hot {
+	text-align: center;
+}
+
+#hot h2 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+#hot li {
+	display: inline-block;
+	list-style-type: none;
+	border: 2px solid darkgoldenrod;
+	border-radius: 10px;
+	padding: 3rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+footer {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	background-color: seagreen;
+}
+
+footer span {
+		margin-bottom: 0.5rem;
+		display: block;
+}

@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Courses Page";
+}
+
+
+<div class="text-center mb-5">
+    <h1 class="display-4">
+        Welcome to La Zuitt
+    </h1>
+
+    <h3>Hello, Admin</h3>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <h2>Courses Available</h2>
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+        <button class="btn btn-outline-secondary">
+            <a class="nav-link text-dark ms-auto" asp-area="" asp-controller="Courses" asp-action="CreateCourse">Create Courses</a>
+        </button>
+    </div>
+</div>
+
+<div style="margin-top: 20px;"></div>
+
+<div class="row d-flex justify-content-between">
+
+    <div class="card bg-white p-3 text-center" style="width: 22.5%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)">
+
+        <h3>ASP.NET</h3>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMOH00P2p0cF3CtYyLLUp_7yTJsoqpwIyxeUihYWnOszvwSbFcJbyv3NleB4ackTfap2I&usqp=CAU" class="img-fluid h-50" />
+
+        <p>ASP is a development framework for building web pages.</p>
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <button class="mb-2 btn btn-primary w-100">Edit</button>
+            <button class="mb-2 btn btn-info w-100">Details</button>
+            <button class="mb-2 btn btn-danger w-100">Delete</button>
+        </div>
+
+    </div>
+
+    <div class="card bg-white p-3 text-center" style="width: 22.5%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)">
+
+        <h3>Python</h3>
+
+        <img src=" https://i.pinimg.com/originals/a8/53/14/a8531424a5fac660e4261f72ca817141.png" class="img-fluid h-50" />
+
+        <p>Python can be used on a server to create web applications.</p>
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <button class="mb-2 btn btn-primary w-100">Edit</button>
+            <button class="mb-2 btn btn-info w-100">Details</button>
+            <button class="mb-2 btn btn-danger w-100">Delete</button>
+        </div>
+
+    </div>
+
+    <div class="card bg-white p-3 text-center" style="width: 22.5%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)">
+
+        <h3>Django</h3>
+
+        <img src="https://youteam.io/blog/wp-content/uploads/2022/06/django-icon-0.png" class="img-fluid h-50" />
+
+        <p>Django is Python framework that makes it easier to create.</p>
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <button class="mb-2 btn btn-primary w-100">Edit</button>
+            <button class="mb-2 btn btn-info w-100">Details</button>
+            <button class="mb-2 btn btn-danger w-100">Delete</button>
+        </div>
+
+    </div>
+
+    <div class="card bg-white p-3 text-center" style="width: 22.5%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)">
+
+        <h3>Javascript</h3>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="img-fluid h-50" />
+
+        <p>Javascript is the most popular programming language of the web.</p>
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <button class="mb-2 btn btn-primary w-100">Edit</button>
+            <button class="mb-2 btn btn-info w-100">Details</button>
+            <button class="mb-2 btn btn-danger w-100">Delete</button>
+        </div>
+
+    </div>
+
+</div>

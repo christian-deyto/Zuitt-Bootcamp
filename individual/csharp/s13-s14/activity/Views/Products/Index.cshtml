@@ -1,0 +1,71 @@
+﻿@model IEnumerable<activity.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between my-5">
+    <h1>Products</h1>
+    <button class="btn btn-success py-0">
+        <a class="text-light text-decoration-none" asp-area="" asp-controller="Products" asp-action="Create">
+            Add New Product
+        </a>
+    </button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Productimg)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Productimg)
+            </td>
+            <td class="align-middle">
+                    <button class="btn btn-warning fw-bold d-block w-100 mb-2">
+                        <a class="text-dark text-decoration-none" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </button>
+
+                    <button class="btn btn-primary fw-bold d-block w-100 mb-2">
+                        <a class="text-dark text-decoration-none" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </button>
+
+                    <button class="btn btn-danger fw-bold d-block w-100 mb-2">
+                        <a class="text-dark text-decoration-none" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

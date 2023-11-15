@@ -1,0 +1,14 @@
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.AssemblyInfoInputs.cache
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.AssemblyInfo.cs
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.csproj.CoreCompileInputs.cache
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\bin\Debug\net6.0\capstone.exe
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\bin\Debug\net6.0\capstone.deps.json
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\bin\Debug\net6.0\capstone.runtimeconfig.json
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\bin\Debug\net6.0\capstone.dll
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\bin\Debug\net6.0\capstone.pdb
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.dll
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\refint\capstone.dll
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.pdb
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\capstone.genruntimeconfig.cache
+C:\Users\josh.deyto\Documents\pointwest\individual\csharp\s09\capstone\obj\Debug\net6.0\ref\capstone.dll

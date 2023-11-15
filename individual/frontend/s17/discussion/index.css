@@ -1,0 +1,85 @@
+/* Style for Navbar brand */
+#logo {
+	color: #003363;
+	font-family: Montserrat;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: 24px; /* 100% */
+}
+
+/* Style for Navbar links */
+nav a {
+	color: #004E84 !important;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px; /* 150% */
+}
+
+/* Style for Landing Title */
+#title {
+	color: var(--gs-brand-white, #FFF);
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 68px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 84px; /* 123.529% */
+}
+
+/* Style and layout for view my work button */
+#base {
+	/* base layout */
+	display: inline-flex;
+	padding: 8px 24px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+
+	/* base style */
+	border-radius: 2px;
+	background: #12C6FF;
+
+	/* text */
+	color: #FFF;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 24px; /* 150% */
+}
+
+/* Landing background */
+#landing {
+	background: 
+	linear-gradient(rgba(0, 34, 65, 0.61), rgba(0, 34, 65, 0.61)), url("./images/landing-bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	;
+}
+
+/*About Me Section*/
+#about {
+	background: #003363;
+}
+
+#text-title {
+	color: #12C6FF;
+	font-family: Montserrat;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px; /* 133.333% */
+}
+
+#about p {
+	color: #FFF;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+}

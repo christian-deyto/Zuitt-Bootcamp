@@ -1,0 +1,14 @@
+﻿@model IEnumerable<LaZuittEcommerce.Models.OrderHistory>
+
+<h1>Order History</h1>
+
+@foreach (var item in Model)
+{
+    <ul class="list-group">
+        <li class="list-group-item active">@item.FullName - @item.DateEnrolled - @item.Billing</li>
+        <li class="list-group-item">Course Title: <strong> @item.Title </strong></li>
+        <li class="list-group-item">@item.Description</li>
+        <li class="list-group-item">Price: P @item.Price (Unit: @item.Quantity)</li>
+    </ul>
+    <br />
+} 

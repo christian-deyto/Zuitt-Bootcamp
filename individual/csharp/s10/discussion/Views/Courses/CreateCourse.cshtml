@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Create Courses Page";
+}
+
+<div class="mb-2">
+    <h2>
+        Create New Course
+    </h2>
+</div>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="title">Course Title</label>
+        <div class="col-sm-5">
+            <input type="text" class="text-input" id="title">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="stack">Stack</label>
+        <div class="col-sm-5">
+            <select class="text-select" id="stack">
+                <option selected></option>
+                <option value="1">MERN Stack</option>
+                <option value="2">MEAN Stack</option>
+                <option value="3">Django Stack</option>
+                <option value="4">Rails</option>
+                <option value="5">LAMP Stack</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="description">Description</label>
+        <div class="col-sm-5">
+            <input type="text" class="text-input" id="description">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="thumbnail">Thumbnail</label>
+        <div class="col-sm-5">
+            <input type="text" class="text-input" id="thumbnail">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="price">Price</label>
+        <div class="col-sm-5">
+            <input type="text" class="text-input" id="price">
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;"></div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-secondary">Create</button>
+        </div>
+    </div>
+</form>

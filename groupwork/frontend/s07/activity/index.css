@@ -1,0 +1,116 @@
+/*CSS Reset*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;;
+}
+
+/*Rule set for the nav elements*/
+nav {
+	/*Shorthand property*/
+	/*Applied padding to all sides*/
+	/*Value is 12.8px based on the root element*/
+	/*Padding creates space between the ul tag and the nav elements*/
+	padding: 0.8rem;
+	/*Margin creates space between the nav and the intro section*/
+	margin-bottom: 2rem;
+	border-bottom: 1px solid black;
+	list-style-type: none;
+}
+
+nav .nav, nav .nav-logo {
+	margin: 0.5rem;
+	display: inline;
+} 
+
+
+#intro {
+	/*padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 2rem;
+	padding-bottom: 3rem;*/
+	/*Shorthand Property*/
+	padding: 2rem 10% 2rem;
+	text-align: center;
+}
+
+/*Ruleset for the elements with header class*/
+.header {
+	text-align: center;
+}
+
+#intro h2, #intro p {
+	/*Creates space between the intro section*/
+	margin-bottom: 1rem;
+}
+
+
+#intro button {
+	color:  white;
+	font-weight:  bold;
+	background-color: #C2195b;
+	border-radius: 25px;
+	font-size: 1rem;
+	padding: 1rem;
+}
+
+/*Rule set for the succeed-info section*/
+#succeed-info {
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 2rem;
+	padding-bottom: 3rem;
+}
+
+#succeed-info h2 {
+	margin-bottom: 1rem;
+}
+
+#succeed-info h3 {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+#succeed-info .card {
+	/*Allows the card elements to appear side by side*/
+	display: inline-block;
+	/*Aligns elements with the tallest element in line*/
+	/*can be only used with inline-block*/
+	vertical-align: top;
+	/*Allows for cards to have equal height that adjusts with the content*/
+	min-height: 75px;
+	width: 30%;
+	margin-left: 0.5rem;
+}
+
+
+/*PRE-FOOTER*/
+#pre-footer {
+	padding: 1rem;
+	color: white;
+	background-color: #002540;
+}
+
+#pre-footer div {
+	display: inline-block;
+	width: 20%;
+}
+
+div h3, div p {
+	margin-top:  0.3rem;
+	margin-bottom:  0.3rem;
+}
+
+/*FOOTER*/
+footer {
+	padding: 0.7rem;
+}
+
+footer span {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}

@@ -1,0 +1,17 @@
+1. d. Routes
+2. b. MapControllerRoute
+3. c. View
+4. c. Controller
+5. d. ActionVerbs
+6. True
+7. False
+8. True
+9. id parameter
+10. index
+11. action
+12. Get
+13. Post
+14. Put
+15. Delete
+
+10/15

@@ -1,0 +1,44 @@
+* {
+	font-family: "Verdana", sans-serif;
+	font-size: 20px;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+#external {
+	color: yellow;
+}
+
+#sub-header {
+	text-transform: uppercase;
+}
+
+
+.text-green {
+	background-color: green;
+}
+
+.border-blue {
+	border-style: solid;
+	border-color:blue;
+	border-width: 2px;
+}
+
+img + ul {
+	list-style: none;
+}
+
+section img {
+	height: 20vh;
+	border-radius: 100px;
+}
+
+ul ~ p {
+	text-align: center;
+}
+
+ul > li {
+	letter-spacing: 10px;
+}

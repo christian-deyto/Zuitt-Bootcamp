@@ -1,0 +1,122 @@
+﻿@model LaZuittEcommerce.Models.ViewModels.CartViewModel
+@{
+    ViewData["Title"] = "Shopping Cart";
+    <style>
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 50px;
+            height: 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .borderless td {
+            border: none;
+        }
+
+        #customer-info{
+            display: flex;
+            justify-content: flex-end;
+            visibility:hidden;
+        }
+
+        .form-group input {
+            margin-bottom: 15px;
+        }
+    </style>
+}
+
+@if(Model.CartItems.Count > 0)
+{
+    <h2 class="text-center p4">Checkout your Courses</h2>
+
+    <table class="table borderless">
+        <thead>
+            <tr>
+                <th colspan="2" class="text-center">Course</th>
+                <th>Description</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Unit</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>
+                        @if (item.Icon != null)
+                        {
+                            <img src="@Url.Content(item.Icon)" alt="Logo" class="logo" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="text-center">
+                        &#8369;@Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger" id="remove" asp-action="Remove" asp-route-id="@item.CourseId" onclick="">Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th colspan="6" class="text-right">
+                    Total Amount: &#8369;@Model.TotalAmount.ToString("0.00") <br />
+                    <button type="button" class="btn btn-secondary mt-2 mb-2" id="place-order" onclick="placeOrder()">Place Order</button>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="row" id="customer-info">
+        <div class="col-md-6">
+            <h4 class="pb-2 text-right">Customer Information</h4><br />
+            <form asp-action="Checkout">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group" style="display: flex;">
+                    <input name="FirstName" class="form-control" type="text" placeholder="First name" style="margin-right: 8px" required />
+                    <input name="LastName" class="form-control" type="text" placeholder="Last name" style="margin-left: 8px;" required />
+                </div>
+                <div class="form-group">
+                    <input name="Email" class="form-control" type="email" placeholder="Email" required />
+                </div>
+
+                <div class="form-group">
+                    <input name="BillingAddress" class="form-control" type="text" placeholder="Billing Address" required />
+                </div>
+                <div class="form-group text-right">
+                    <input type="submit" value="Checkout" class="btn btn-primary" asp-action="Checkout" onclick="" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <h2 class="text-danger text-center pt-5">Your Cart is Empty.</h2>
+    <p class="text-center">@Html.ActionLink("Check Available Courses", "Index", "Course")</p>
+}
+
+<script>
+    function placeOrder() {
+        document.getElementById("customer-info").style.visibility = "visible";
+    }
+</script>

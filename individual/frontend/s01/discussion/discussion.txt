@@ -1,0 +1,154 @@
+========================================================
+Notes for CLI - Command Line Interface Commands:
+
+GUI is a graphical representation in which the users can interact with software or devices through clickable icons
+
+CLI is a console or text-based represenration which a user types commands in a terminal
+
+pwd - present working directory - shows the current folder we are working on
+
+ls - list the files and folders contained by the current directory
+
+mkdir <folderName> - creates a new directory
+
+cd <folderName> - change directories
+
+touch <fileName> - used to create files
+
+cd - (go back one directory)
+
+cd .. - (one folder up)
+
+rm <name of the file> - to delete file 
+
+rmdir <name of the folder> - to delete an empty directory
+
+rm -r <directory_name> - This command will remove the specified directory and its contents recursively. It will prompt you for confirmation before deleting each file.
+
+rm -rf <directory_name> - This command will forcefully remove the specified directory and its contents without any confirmation prompts. Use this with caution, as it does not provide a chance to recover deleted data.
+========================================================
+
+
+Discussion:
+
+Creating SSH key and Configuring your git account.
+
+1. Open a terminal.
+
+	Mac and Linux
+	    open the "Terminal" program
+	Windows
+	    open the "Windows Terminal" or "Command Prompt".
+
+2. Create an SSH Key.
+
+	command: ssh-keygen -t rsa
+
+3. Copy the SSH key.
+
+	3.1. via terminal
+
+		Linux
+		    xclip -sel clip < ~/.ssh/id_rsa.pub
+
+		Mac
+		    pbcopy < ~/.ssh/id_rsa.pub
+
+		Windows
+		    cat ~/.ssh/id_rsa.pub | clip
+
+	3.2 via Sublime Text.
+
+		Locate the .ssh folder from your directory.
+
+		Open the .ssh folder in sublime text.
+
+		Open the id_rsa.pub file.
+
+		Copy the ssh key. Make sure there is no white space.
+
+4. Add the SSH key to your Zuitt Git account:
+
+		Link: https://git.zuitt.co/user/settings/keys
+
+		Paste the ssh key in the content.
+
+		Key name is your first and last name without space.
+
+			example: 
+				johndoe
+
+5. Configure the git account in the device/project.
+    
+    	In the Terminal/Git bash
+
+        Configure the global user email
+            git config --global user.email "[git account email address]"
+
+            example:
+                git config --global user.email "john.doe@mail.com"
+
+        Configure the global user name
+            git config --global user.name "[git account username]"
+
+            example:
+                git config --global user.name "johndoe"
+
+
+
+Initializing Local Repository:
+
+commands 				|				description
+
+git init 					- to initialize a local git repository
+
+git status 					- to check th status of a local git repository
+
+git branch -M master		- to change to branch master before staging files to commit.
+
+git add [fileName] 			- for staging files individually.
+
+git add .					- for staging all files for commit.
+
+git add -A					- for staging all files for commit.
+
+git commit -m "<message>"	- to create a version of your source code. Should be manually written.
+
+	example:
+			git commit -m "Inital commit"
+
+git log 					- to check commit history.
+
+git remote add <remote-alias> <git-repo-ssh-link> - to add connection to online repo.
+
+	example:
+		GitLab
+		        git remote add origin git@gitlab.com:johndoe/s02.git
+		        git remote add secondary git@gitlab.com:johndoe/s02.git
+
+
+git remote -v 				- to check the remote alias and their corresponding links.
+
+
+git remote remove <remote-alias> - to remove connection to online repo.
+
+	example:
+			git remote remove origin
+
+git push <remote-name> <branch-name> - to upload local repo to remote repo.
+
+	example:
+			git push origin master
+
+
+git clone <git-repo-ssh-link	- to clone a remote repo to a local repo.
+
+	example:
+
+			git clone git@gitlab.com:johndoe/git-clone-sample.git
+
+git pull <remote-name> <branch-name> - to pull changes from a remote repository.
+
+	example:
+			git pull origin master
+

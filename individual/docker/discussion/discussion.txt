@@ -1,0 +1,351 @@
+Docker Documentation:
+
+
+[S01 - Docker Introduction]
+
+- to check the version of docker in your machine
+docker -- version
+
+
+- a command to created a hosted app.
+docker run -d -p 80:80 docker/getting-started
+
+
+[Section] Docker Commands
+
+- used to execute other instructions
+docker run
+
+- lists the containers that exist in the machine. Adding "-a" flag list all the containers.
+docker ps
+
+- stop a container
+docker stop [container_id]
+
+- start a container
+docker start [container_id]
+
+- deletes a container
+docker rm [container_id]
+
+
+======================================
+
+-- add the --name flag to give the container a name.
+docker run -d -p 81:81 --name getting_started docker/getting-started
+
+
+- to rename our container
+- docker rename <old_container_name> <new_container_name>
+docker rename getting_started starter_container
+
+
+[S02 - App Containerization]
+
+[Build the App Container Image]
+
+	- We need to create a Dockerfile in our app root folder
+
+
+[Build the container image]
+
+- the period (.) at the end of the command will search for the Dockerfile in the root.
+docker build -t <image_name> .
+ex.:
+docker build -t ramos-nodejs-todo .
+  
+After creating the container image, create the container using the docker run command.
+
+When performing an update/ life cycle iteration, it is best to re-build the image and container.
+
+
+[Pushing into Docker Hub]
+
+We can share our containers and images to Docker Hub community by pushing these to a docker hub repository.
+
+
+Once the repository has been created, push your image or container.
+
+ex.:
+docker push rupertramos/ramos-nodejs-todo
+
+Upon running this command, it will result to an error:
+
+The push refers to repository [docker.io/rupertramos/ramos-nodejs-todo]
+An image does not exist locally with the tag: rupertramos/ramos-nodejs-todo
+
+To resolve this, we need to check the list of images:
+
+- to check the list of images in our machine.
+docker image ls
+
+
+Then login your docker id into the terminal(gitbash/powershell)
+docker login -u <username>
+
+ex.:
+docker login -u rupertramos
+
+After loggin your docker id in the terminal, rename the image using this command:
+
+docker tag <image_local> <namespace/repo>
+
+ex.:
+docker tag ramos-nodejs-todo rupertramos/ramos-nodejs-todo
+
+Then push the image to the repo.
+
+
+[S03 DB Persistence and Bind Mounts]
+
+
+
+[Section] Container Filesystem
+
+	- each container gets its own "scratch space" to update/create/remove files.
+	- Any changes will not be seen in another container, even if they are using the same image.
+
+
+Demo command:
+docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"
+
+
+[exec command in docker]
+
+create the first container using ubuntu image:
+docker exec <container_id> cat /data.txt
+
+create another container using ubuntu image:
+docker run -i -t ls /
+docker run - it ls /
+
+
+
+[Section] Container Volumes
+	- Volumes provide the ability to connect a specific filesytem paths of the container back to the host machine.
+	- If a directory in the container is mounter, changes in that directory are also seen in the host machince.
+	- If we mound that same directory accross container restarts, we'd see the same files.
+
+[Creating a Docker Volume]
+
+- command to create a docker volume
+docker volume create <volume_name>
+
+ex.:
+docker volume create todo-db
+
+Note: 
+	- delete the old container and create and attach its volume
+
+- this is the command to re-create the container and connect it to its volume:
+
+docker run -dp 3000:3000 -v todo-db:/etc/todos lastname-nodejs-todo
+
+ex.:
+docker run -dp 3000:3000 -v todo-db:/etc/todos ramos-nodejs-todo
+
+
+[Inspecting Docker Volumes]
+
+	-Volumes store data somewhere in our host machine's disk.
+	- There is a portion in our host's VM, that contains the database file and it can only be accessed if you have admin access to the root and you will have to locate it inside the VM directory.
+	- Instead of doing this, we will just simply inspect the volume in our host terminal using shell.
+
+
+docker volume inspect <volume_name>
+
+ex.:
+docker volume inspect todo-db
+
+[output]
+[
+    {
+        "CreatedAt": "2023-11-09T07:44:55Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/todo-db/_data",
+        "Name": "todo-db",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+
+
+
+[Start a Dev-Mode Container]
+	-here we are performing bind mount for our volume.
+	- we used the $(pwd) to state the location where we want to store our DB file.
+
+- powershell command version:
+docker run -dp 3000:3000 `
+     -w /app -v "$(pwd):/app" `
+     node:12-alpine `
+     sh -c "yarn install && yarn run dev"
+
+
+- to check the logs tail in the terminal
+docker logs -f <container_id>
+ex.:
+docker logs -f 12345abcd
+
+
+
+[S04: Multi-Container Apps and Docker Compose]
+
+
+- creates a container network
+docker network create <network_name>
+ex:
+docker network create todo-app
+
+
+- Start a mySQL container and attach it to the netwrok.
+- We also defined a few env variables that the database will use to initialize the DB.
+
+docker run -d `
+     --network todo-app --network-alias mysql `
+     -v todo-mysql-data:/var/lib/mysql `
+     -e MYSQL_ROOT_PASSWORD=secret `
+     -e MYSQL_DATABASE=todos `
+     mysql:5.7
+
+
+
+-To confirm if we have the database up and running, connent to the DB and verify its connects:
+
+docker exec -it <mysql-container-id> mysql -u root -p
+
+
+-create a new container using nicolaka/netshoot image:
+note: make sure to connect it to the same netwerk.
+
+docker run -it --network todo-app nicolaka/netshoot
+
+-to find the IP of your sql server (inside the mysql shell):
+
+dig mysql
+
+[output]
+; <<>> DiG 9.18.13 <<>> mysql
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 37107
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;mysql.                         IN      A
+
+;; ANSWER SECTION:
+mysql.                  600     IN      A       172.18.0.2
+
+;; Query time: 20 msec
+;; SERVER: 127.0.0.11#53(127.0.0.11) (UDP)
+;; WHEN: Fri Nov 10 02:05:21 UTC 2023
+;; MSG SIZE  rcvd: 44
+
+Once inside the mysql shell:
+
+
+
+-this is after we have identified the mysql IP address
+ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'secret';
+FLUSH PRIVILEGES;
+
+-Before continuing with the command above, open a new terminal to the todo app source code directory.
+- Specify each environment variables, as well as connect the container to our app network.
+
+docker run -dp 3000:3000 `
+   -w /app -v "$(pwd):/app" `
+   --network todo-app `
+   -e MYSQL_HOST=mysql `
+   -e MYSQL_USER=root `
+   -e MYSQL_PASSWORD=secret `
+   -e MYSQL_DB=todos `
+   node:12-alpine `
+   sh -c "yarn install && yarn run dev"
+
+
+[Creating a Docker Compose YAML file]
+
+contents:
+version: "3.7"
+
+services:
+  app:
+    image: node:12-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+volumes:
+  todo-mysql-data:
+
+
+- After creating the docker-compose.yml file:
+
+[Define the MYSQL Service]
+
+docker run -d `
+  --network todo-app --network-alias mysql `
+  -v todo-mysql-data:/var/lib/mysql `
+  -e MYSQL_ROOT_PASSWORD=secret `
+  -e MYSQL_DATABASE=todos `
+  mysql:5.7
+
+
+
+[Run the App Stack]
+
+	- After configuring the docker-compose.yml file, delete all the other containers running in the same port/enviroment.
+
+
+
+
+
+
+[SQL Commands]
+
+- command to display all databased in mysql
+SHOW DATABASE;
+
+
+- command to use a database
+USE <db-name>;
+ex.:
+USE todos;
+
+- select all records from the todo_items table
+SELECT * FROM todo_items;
+
+
+
+[Docker Compose]
+
+	- To resolve the issue about having our server container and app container running separately, we will use Docker Compose.
+
+
+- to check the version of docker compose.
+docker-compose version
+
+
+- creating a docker-compose container
+docker-compose up -d
+
+
+- to tear down the container created using docker compose
+docker-compose down

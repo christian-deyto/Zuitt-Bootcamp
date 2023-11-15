@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ECommerceCapstone.Models.Product>
+
+@{
+    ViewData["AwtoPiyesa"] = "Products";
+    <style>
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+        }
+
+        .spacing {
+            padding-top: 10px;
+        }
+
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+            max-height: 100%;
+        }
+
+        .card-header, .card-footer {
+            background-color: #fff;
+        }
+
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    </style>
+}
+<h1 class="pb-4">Buy Now!</h1>
+
+<div class="row pb-4">
+    @foreach (var product in Model)
+    {
+        if (product.Archived == false){
+        <div class="column">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title spacing">@product.Name</h5>
+                    <p class="card-text">@product.Description</p>
+                    <p class="card-text">&#8369;@product.Price</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-outline-danger" asp-controller="Cart" asp-action="Add" asp-route-id="@product.Id">Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        }
+    }
+</div>
